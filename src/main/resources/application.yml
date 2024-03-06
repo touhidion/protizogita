@@ -1,0 +1,65 @@
+server:
+  port: 8084
+
+spring:
+  datasource:
+    ### PostgreSQL DB - "protizogita"
+    url: jdbc:postgresql://localhost:5432/protizogita_system
+    username: root
+    password: root
+    driver-class-name: org.postgresql.Driver
+
+    ### MySQL DB - "protizogita"
+#    url: jdbc:mysql://localhost:3306/protizogita_system
+#    username: root
+#    password: root
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    database: postgresql
+#    database: mysql
+    ### show-sql: prints SQL statements to the console. Should be avoided.
+#    show-sql: true
+    hibernate:
+      ### ddl-auto: defines the behavior for Hibernate schema auto-generation
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        ### formats/beautify SQL statements before being printed or logged to the console.
+        format_sql: true
+        ### Dialect allows Hibernate to generate better/optimized SQL for a particular relational database.
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+#        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+
+    ### another way to specify hibernate dialect
+#    database-platform: org.hibernate.dialect.PostgreSQLDialect
+#    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+
+
+### STANDARD OUTPUT: show-sql and format_sql gives standard logging output of JPA queries
+###   which don’t log the parameters of prepared statements. Only works for console log and has performance issue. Not recommended.
+### LOGGING FRAMEWORK: we can log the SQL statements also by configuring loggers here.
+
+### Hibernate logger for DEV
+logging:
+  level:
+    org:
+      hibernate:
+        ### logs the SQL queries
+        sql: DEBUG
+        ### logs all prepared JDBC bind parameters with values
+#        type: TRACE
+        ### logs all prepared JDBC bind parameters (hibernate 6)
+        orm:
+          jdbc:
+            bind: TRACE
+#        ### Hibernate writes a message to the slow query log if the execution of an SQL statement took longer than the configured threshold (Hibernate >= 5.4.5)
+#        SQL_SLOW: INFO
+#        ### Hibernate writes some statistics for each query to this category.
+#        stat: DEBUG
+
+#### Hibernate logger for PRODUCTION
+#logging:
+#  level:
+#    org:
+#      hibernate: ERROR
