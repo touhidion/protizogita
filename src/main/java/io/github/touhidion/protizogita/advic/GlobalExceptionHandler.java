@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import java.util.HashMap;
 import java.util.Map;
 
-//@RestControllerAdvice
+@RestControllerAdvice
 public class GlobalExceptionHandler {
 
-    //@ExceptionHandler(MethodArgumentNotValidException.class)
+    @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<Map<String, String>> handleMethodArgsNotValidException(MethodArgumentNotValidException ex) {
         Map<String, String> response = new HashMap<>();
         ex.getBindingResult().getAllErrors().forEach((error) -> {

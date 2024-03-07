@@ -1,47 +1,53 @@
 plugins {
-	id 'java'
-	id 'org.springframework.boot' version '3.2.3'
-	id 'io.spring.dependency-management' version '1.1.4'
+    id 'java'
+    id 'org.springframework.boot' version '3.2.3'
+    id 'io.spring.dependency-management' version '1.1.4'
 }
 
 group = 'io.github.touhidion'
 version = '0.0.1-SNAPSHOT'
 
 java {
-	sourceCompatibility = '21'
+    sourceCompatibility = '21'
 }
 
 configurations {
-	compileOnly {
-		extendsFrom annotationProcessor
-	}
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
 }
 
 repositories {
-	mavenCentral()
+    mavenCentral()
 }
 
 dependencies {
-	// spring web v-
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	// spring jpa v
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	//implementation 'org.springframework.boot:spring-boot-starter-mail'
-	// spring security v
-	//implementation 'org.springframework.boot:spring-boot-starter-security'
-	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
-	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6'
-	// validation
-	implementation 'org.springframework.boot:spring-boot-starter-validation'
-	compileOnly 'org.projectlombok:lombok'
-	developmentOnly 'org.springframework.boot:spring-boot-devtools'
-	runtimeOnly 'org.postgresql:postgresql'
-	annotationProcessor 'org.projectlombok:lombok'
-	implementation 'org.modelmapper:modelmapper:3.2.0'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	testImplementation 'org.springframework.security:spring-security-test'
+    // spring-web:3.2.3
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    // spring-jpa:3.2.3
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    //implementation 'org.springframework.boot:spring-boot-starter-mail'
+    // spring security v
+    //implementation 'org.springframework.boot:spring-boot-starter-security'
+    // thymeleaf:3.2.3
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    //implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6'
+    // validation:3.2.3
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+    // lombok:1.18.30
+    compileOnly 'org.projectlombok:lombok'
+    // devtools:3.2.3
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    // postgresql:42.6.1
+    runtimeOnly 'org.postgresql:postgresql'
+    annotationProcessor 'org.projectlombok:lombok'
+    // model-mapper:3.2.0
+    implementation 'org.modelmapper:modelmapper:3.2.0'
+    // web-test:3.2.3
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    //testImplementation 'org.springframework.security:spring-security-test'
 }
 
 tasks.named('test') {
-	useJUnitPlatform()
+    useJUnitPlatform()
 }

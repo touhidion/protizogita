@@ -15,6 +15,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class UserSignupRequest {
     @NotNull(message = "Full name is required.")
+    @NotBlank(message = "Full name is required.")
     @Size(min = 1, max = 100, message = "Invalid full name.")
     private String fullName;
 
